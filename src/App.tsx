@@ -1,11 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 
+import { MainLayout } from "./pageLayouts/mainLayout/mainLayout.tsx";
 import { APP_PATHS } from "./utils/costants.ts";
 
 const router = createBrowserRouter([
   {
     path: APP_PATHS.main,
-    element: <div>Hello World</div>,
+    element: (
+      <MainLayout>
+        <div>Hello World</div>
+      </MainLayout>
+    ),
   },
   {
     path: "/anna",
