@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 
-import { MainLayout } from "./pageLayouts/mainLayout/mainLayout.tsx";
-import { APP_PATHS } from "./utils/costants.ts";
+import { MainLayout } from "@/pageLayouts/mainLayout/mainLayout.tsx";
+import { APP_PATHS } from "@/utils/costants.ts";
 
 const router = createBrowserRouter([
   {

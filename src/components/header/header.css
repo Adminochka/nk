@@ -1,4 +1,4 @@
-@reference "../../index.css";
+@reference "@/index.css";
 
 .header__wrapper {
   @apply flex items-center bg-yellow-300 h-10 hover:bg-green-600 shadow-2xl;
