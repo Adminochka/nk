@@ -1,111 +1,85 @@
 @import "tailwindcss";
 
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@theme {
+  --color-write: #ffffff;
+  --color-black: #000000;
 
-  --sans: system-ui, "Segoe UI", Roboto, sans-serif;
-  --heading: system-ui, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2a37;
+  --color-gray-900: #111928;
 
-  font: 18px / 145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --color-pink-50: #ffedf7;
+  --color-pink-100: #f9cce6;
+  --color-pink-200: #f399cd;
+  --color-pink-300: #ec66b5;
+  --color-pink-400: #e6339c;
+  --color-pink-500: #e00083;
+  --color-pink-600: #b30069;
+  --color-pink-700: #86004f;
+  --color-pink-800: #5a0034;
+  --color-pink-900: #2d001a;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
+  --color-bg: #ffffff;
+  --color-border: var(--color-gray-300);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+  --font-sans: Roboto, sans-serif;
+  --font-heading: Roboto, sans-serif;
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
+  --radius-default: 8px;
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  --shadow-card: 0px 6px 12px 3px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0px 2px 4px 0px rgba(0, 0, 0, 0.32);
 }
 
 body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+  @apply min-h-screen font-sans text-gray-900 text-[14px] md:text-[16px] xl:text-[18px] leading-[150%] bg-bg m-0 box-border antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  @apply text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] xl:text-[44px] font-semibold;
 }
+
 h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  @apply text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] font-semibold lg:font-medium;
 }
+
+h3 {
+  @apply text-[16px] lg:text-[18px] xl:text-[20px] leading-[120%] font-medium;
+}
+
 p {
-  margin: 0;
+  @apply m-0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.container {
+  @apply max-w-[1440px] px-4 sm:px-5 lg:px-6 xl:px-10 2xl:px-20 my-0 mx-auto;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.scroll::-webkit-scrollbar {
+  @apply w-2.5;
+}
+
+.scroll::-webkit-scrollbar-track {
+  @apply rounded-[5px];
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  @apply border-transparent border-2 border-solid rounded-[5px];
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
 }
